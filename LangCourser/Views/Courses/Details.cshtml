@@ -1,0 +1,42 @@
+﻿@model ISBD_project.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Language.nameL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language.nameL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.nameU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.nameU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

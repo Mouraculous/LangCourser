@@ -1,0 +1,52 @@
+﻿@using ISBD_project.Models
+<!-- model LoginViewModel-->
+@model Account
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))  
+{  
+    <fieldset>  
+        <legend>Log in using your existing account</legend>  
+  
+        @Html.AntiForgeryToken()  
+        @Html.ValidationSummary(true)  
+        @if (@ViewBag.Message != null)  
+        {  
+            <div style="border: 1px solid red">  
+                @ViewBag.Message  
+            </div>  
+        }  
+        <div class="form-horizontal">  
+            <tr>  
+                <td>@Html.LabelFor(a => a.loginA, new { @class = "col-md-2 control-label" })</td>  
+                <td>@Html.TextBoxFor(a => a.loginA, new { @class = "form-control" })</td>  
+                <td>@Html.ValidationMessageFor(a => a.loginA, "", new { @class = "text-danger" })</td>  
+            </tr>  
+            <tr>  
+                <td>  
+                    @Html.LabelFor(a => a.passwordA, new { @class = "col-md-2 control-label" })  
+                </td>  
+                <td>  
+                    @Html.PasswordFor(a => a.passwordA, new { @class = "form-control" })  
+                </td>  
+                <td>  
+                    @Html.ValidationMessageFor(a => a.passwordA, "", new { @class = "text-danger" })  
+                </td>  
+            </tr>  
+            <tr>  
+                <td></td>  
+                <td>  
+                    <input type="submit" value="Login" class="btn btn-default"/>  
+                </td>  
+                <td></td>  
+            </tr>  
+        </div>  
+    </fieldset>  
+}  
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

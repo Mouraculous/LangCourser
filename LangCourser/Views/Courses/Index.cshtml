@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ISBD_project.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Course name
+        </th>
+        <th>
+            Language
+        </th>
+        <th>
+            Lecturer
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Language.nameL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idC })
+        </td>
+    </tr>
+}
+
+</table>

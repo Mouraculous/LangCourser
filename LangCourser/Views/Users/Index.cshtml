@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ISBD_project.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Surname
+        </th>
+        <th>
+            E-mail
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Gender
+        </th>
+        <th>
+            Affiliation
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surnameU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ageU)
+        </td>
+        <td>
+            @if (item.genderU.Equals(0))
+            {
+                <i>Male</i>
+            }else
+            {
+                <i>Female</i>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserAffiliation.nameUA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idU }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idU }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idU })
+        </td>
+    </tr>
+}
+
+</table>

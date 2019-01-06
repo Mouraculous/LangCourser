@@ -1,0 +1,6 @@
+- logowanie (podzielenie uprawnien uzytkownikow)
+- zapis na kurs
+- ocena kurs
+
+poboczne:
+- upload materiałow szkoleniowych

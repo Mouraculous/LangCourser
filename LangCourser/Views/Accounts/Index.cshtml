@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ISBD_project.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            User ID
+        </th>
+        <th>
+            Login
+        </th>
+        <th>
+            Password
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.idU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.loginA)
+        </td>
+        <td>
+            ********
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idA })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,48 @@
+﻿@model ISBD_project.Models.UserCourseAffiliation
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserCourseAffiliation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.nameC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.nameC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.nameU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.nameU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.scoreUCA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scoreUCA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿@model ISBD_project.Models.Users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Users</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserAffiliation.nameUA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserAffiliation.nameUA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nameU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surnameU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surnameU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.emailU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emailU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ageU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ageU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genderU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genderU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idU }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
