@@ -1,6 +1,7 @@
-﻿@model ISBD_project.Models.RegisterModel
+﻿@using ISBD_project.Resources
+@model ISBD_project.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Shared.Register;
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -12,56 +13,56 @@
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(m => m.LoginA, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.Username</div>
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.LoginA, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.LoginA, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.PasswordA, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.Password</div>
         <div class="col-md-10">
             @Html.PasswordFor(m => m.PasswordA, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PasswordA, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.PasswordA, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.RepeatPassword</div>
         <div class="col-md-10">
             @Html.PasswordFor(m => m.RepeatedPasswordA, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.RepeatedPasswordA, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.EmailU, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">E-mail</div>
         <div class="col-md-10">
             @Html.EditorFor(m => m.EmailU, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.EmailU, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.NameU, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.Name</div>
         <div class="col-md-10">
-            @Html.EditorFor(m => m.NameU, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(m => Shared.Name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.NameU, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.SurnameU, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.Surname</div>
         <div class="col-md-10">
             @Html.EditorFor(m => m.SurnameU, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.SurnameU, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.AgeU, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.BirthDate</div>
         <div class="col-md-10">
             @Html.EditorFor(m => m.AgeU, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.AgeU, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.GenderU, new { @class = "col-md-2 control-label" })
+        <div class="col-md-2 control-label">@Shared.Gender</div>
         <div class="col-md-10">
             @Html.EditorFor(m => m.GenderU, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.GenderU, "", new { @class = "text-danger" })
@@ -69,7 +70,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value=@Shared.Accept />
         </div>
     </div>
 }

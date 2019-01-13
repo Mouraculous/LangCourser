@@ -1,24 +1,25 @@
-﻿@model IEnumerable<ISBD_project.Models.Account>
+﻿@using ISBD_project.Resources
+@model IEnumerable<ISBD_project.Models.Account>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@Shared.Accounts</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Shared.Create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            User ID
+            ID
         </th>
         <th>
-            Login
+            @Shared.Username
         </th>
         <th>
-            Password
+            @Shared.Password
         </th>
         <th></th>
     </tr>
@@ -35,9 +36,9 @@
             ********
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idA }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idA }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idA })
+            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idA }) |
+            @Html.ActionLink(Shared.Details, "Details", new { id=item.idA }) |
+            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idA })
         </td>
     </tr>
 }

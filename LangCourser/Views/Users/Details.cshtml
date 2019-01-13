@@ -1,66 +1,58 @@
-﻿@model ISBD_project.Models.Users
+﻿@using ISBD_project.Resources
+@model ISBD_project.Models.Users
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Shared.Details</h2>
 
 <div>
-    <h4>Users</h4>
+    <h4>@Shared.User</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserAffiliation.nameUA)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.UserAffiliation</dt>
 
         <dd>
             @Html.DisplayFor(model => model.UserAffiliation.nameUA)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nameU)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Name</dt>
 
         <dd>
             @Html.DisplayFor(model => model.nameU)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.surnameU)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Surname</dt>
 
         <dd>
             @Html.DisplayFor(model => model.surnameU)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.emailU)
-        </dt>
+        <dt class="col-md-2 control-label">
+            @Shared.Email
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.emailU)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.emailU)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ageU)
-        </dt>
+    <dt class="col-md-2 control-label">@Shared.Age</dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ageU)
-        </dd>
+    <dd>
+        @Html.DisplayFor(model => model.ageU)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.genderU)
-        </dt>
+    <dt>
+        <div class="col-md-2 control-label">@Shared.Gender</div>
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.genderU)
-        </dd>
-
+    <dd>
+        @Html.DisplayFor(model => model.genderU)
+    </dd>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idU }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idU }) |
+    @Html.ActionLink(@Shared.Back, "Index")
 </p>

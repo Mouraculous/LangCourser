@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@using ISBD_project.Resources
+@{
+    ViewBag.Title = Shared.Contact;
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
@@ -7,10 +8,10 @@
 <address>
     Chorwacka 2c<br />
     51-107, Wrocław<br />
-    <abbr title="Phone">Phone:</abbr>
+    <abbr title="Phone">@Shared.Phone</abbr>
     (+48) 555 666 777
 </address>
 
 <address>
-    <strong>Developers:</strong>   <a href="mailto:devteam@courser.com">devteam@courser.com</a><br />
+    <strong>@Shared.Devs</strong>   <a href="mailto:devteam@courser.com">devteam@courser.com</a><br />
 </address>

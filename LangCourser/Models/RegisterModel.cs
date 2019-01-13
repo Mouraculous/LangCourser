@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace ISBD_project.Models
 {
     public class RegisterModel
     {
+        [RegularExpression("^[A-Za-z]+$")]
         public string LoginA { get; set; }
 
         public string PasswordA { get; set; }

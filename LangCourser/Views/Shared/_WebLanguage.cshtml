@@ -1,36 +1,37 @@
-﻿@if (Response.Cookies.Get("Language").Value != null)
+﻿@using ISBD_project.Resources
+@if (Request.Cookies.Get("Language").Value != null)
     {
-        if (Response.Cookies.Get("Language").Value.Equals("pl"))
+        if (Request.Cookies.Get("Language").Value.Equals("pl"))
         {
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
-            Polish
+            @Shared.Polish
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-            <li>@Html.ActionLink("English", "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
-            <li>@Html.ActionLink("Polish", "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+            <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+            <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
         </ul>
         }
         else
         {
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
-                English
+                @Shared.English
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("English", "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
-                <li>@Html.ActionLink("Polish", "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+                <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+                <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
             </ul>
         }
     }
     else
     {
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
-            English
+            @Shared.English
             <span class="caret"></span>
         </button>
             <ul class="dropdown-menu">
-                <li>@Html.ActionLink("English", "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
-                <li>@Html.ActionLink("Polish", "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+                <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+                <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
             </ul>
     }

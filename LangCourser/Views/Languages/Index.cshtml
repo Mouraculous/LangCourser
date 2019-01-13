@@ -1,31 +1,30 @@
-﻿@model IEnumerable<ISBD_project.Models.Language>
+﻿@using ISBD_project.Resources
+@model IEnumerable<ISBD_project.Models.Language>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@Shared.Languages</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(@Shared.Create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-           Language
+           @Shared.Language
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td class="col-md-2 control-label">@Shared.Language</td>
         <td>
-            @Html.DisplayFor(modelItem => item.nameL)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idL }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idL }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idL })
+            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idL }) |
+            @Html.ActionLink(Shared.Details, "Details", new { id=item.idL }) |
+            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idL })
         </td>
     </tr>
 }

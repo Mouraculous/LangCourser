@@ -48,7 +48,7 @@ namespace ISBD_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idU,nameU,surnameU,emailU,ageU,genderU,idUA")] Users users)
+        public ActionResult Create([Bind(Include = "idU,nameU,surnameU,emailU,BirthDateU,genderU,idUA")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace ISBD_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idU,nameU,surnameU,emailU,ageU,genderU,idUA")] Users users)
+        public ActionResult Edit([Bind(Include = "idU,nameU,surnameU,emailU,BirthDateU,genderU,idUA")] Users users)
         {
             if (ModelState.IsValid)
             {

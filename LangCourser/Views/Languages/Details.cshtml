@@ -1,18 +1,17 @@
-﻿@model ISBD_project.Models.Language
+﻿@using ISBD_project.Resources
+@model ISBD_project.Models.Language
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Shared.Details</h2>
 
 <div>
-    <h4>Language</h4>
+    <h4>@Shared.Languages</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nameL)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Language</dt>
 
         <dd>
             @Html.DisplayFor(model => model.nameL)
@@ -21,6 +20,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idL }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idL }) |
+    @Html.ActionLink(Shared.Back, "Index")
 </p>

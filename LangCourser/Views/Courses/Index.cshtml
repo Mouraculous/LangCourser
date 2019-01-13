@@ -1,24 +1,25 @@
-﻿@model IEnumerable<ISBD_project.Models.Course>
+﻿@using ISBD_project.Resources
+@model IEnumerable<ISBD_project.Models.Course>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@Shared.Courses</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Shared.Create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            Course name
+            @Shared.CourseName
         </th>
         <th>
-            Language
+            @Shared.Language
         </th>
         <th>
-            Lecturer
+            @Shared.Lecturer
         </th>
         <th></th>
     </tr>
@@ -35,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idC }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idC }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idC })
+            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC }) |
+            @Html.ActionLink(Shared.Details, "Details", new { id=item.idC }) |
+            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idC })
         </td>
     </tr>
 }

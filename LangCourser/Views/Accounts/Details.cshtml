@@ -1,34 +1,29 @@
-﻿@model ISBD_project.Models.Account
+﻿@using ISBD_project.Resources
+@model ISBD_project.Models.Account
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Shared.Details</h2>
 
 <div>
-    <h4>Account</h4>
+    <h4>@Shared.Account</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Users.nameU)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Name</dt>
 
         <dd>
             @Html.DisplayFor(model => model.Users.nameU)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.loginA)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Username</dt>
 
         <dd>
             @Html.DisplayFor(model => model.loginA)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.passwordA)
-        </dt>
+        <dt class="col-md-2 control-label">@Shared.Password</dt>
 
         <dd>
             @Html.DisplayFor(model => model.passwordA)
@@ -37,6 +32,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idA }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idA }) |
+    @Html.ActionLink(Shared.Back, "Index")
 </p>

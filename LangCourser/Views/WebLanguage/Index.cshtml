@@ -1,12 +1,13 @@
-﻿
+﻿@using ISBD_project.Resources
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@Shared.WebLanguage</h2>
 <ul>
-    <li>@Html.ActionLink("English", "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
-    <li>@Html.ActionLink("Polish", "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+    <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+    <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
 </ul>
 

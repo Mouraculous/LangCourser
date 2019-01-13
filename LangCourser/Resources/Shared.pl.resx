@@ -117,7 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>O nas</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>Akceptuj</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Konto</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Konta</value>
+  </data>
+  <data name="AdditionalInfo" xml:space="preserve">
+    <value>Dodatkowe informacje o naszej stronie</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Wiek</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Powrót</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>Data urodzenia</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="Course" xml:space="preserve">
+    <value>Kurs</value>
+  </data>
+  <data name="CourseName" xml:space="preserve">
+    <value>Nazwa Kursu</value>
+  </data>
+  <data name="Courses" xml:space="preserve">
+    <value>Kursy</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="Devs" xml:space="preserve">
+    <value>Deweloperzy:</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Adres email</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Angielski</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Kobieta</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Płeć</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Witaj </value>
+  </data>
   <data name="Home" xml:space="preserve">
-    <value>Dom</value>
+    <value>Strona główna</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="LangCourses" xml:space="preserve">
+    <value>Kursy językowe</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Język</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Języki</value>
+  </data>
+  <data name="Lecturer" xml:space="preserve">
+    <value>Prowadzący</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Zaloguj</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Wyloguj</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Mężczyzna</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Imię</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Telefon:</value>
+  </data>
+  <data name="Polish" xml:space="preserve">
+    <value>Polski</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Rejestracja</value>
+  </data>
+  <data name="RepeatPassword" xml:space="preserve">
+    <value>Powtórz hasło</value>
+  </data>
+  <data name="Surname" xml:space="preserve">
+    <value>Nazwisko</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Użytkownik</value>
+  </data>
+  <data name="UserAffiliation" xml:space="preserve">
+    <value>Rola użytkownika</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Użytkownicy</value>
+  </data>
+  <data name="WebLanguage" xml:space="preserve">
+    <value>Język strony</value>
+  </data>
+  <data name="YouSure" xml:space="preserve">
+    <value>Czy na pewno chcesz to usunąć?</value>
   </data>
 </root>

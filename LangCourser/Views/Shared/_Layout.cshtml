@@ -1,4 +1,5 @@
-﻿@using ISBD_project.Session
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,16 +22,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
+                    <li>@Html.ActionLink(Shared.About, "About", "Home")</li>
+                    <li>@Html.ActionLink(Shared.Courses, "Index", "Courses")</li>
                     @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
                     {
-                        <li>@Html.ActionLink("WebLang", "Index", "WebLanguage")</li>
-                        <li>@Html.ActionLink("Users", "Index", "Users")</li>
-                        <li>@Html.ActionLink("Accounts", "Index", "Accounts")</li>
-                        <li>@Html.ActionLink("Languages", "Index", "Languages")</li>
+                        <li>@Html.ActionLink(Shared.WebLanguage, "Index", "WebLanguage")</li>
+                        <li>@Html.ActionLink(Shared.Users, "Index", "Users")</li>
+                        <li>@Html.ActionLink(Shared.Accounts, "Index", "Accounts")</li>
+                        <li>@Html.ActionLink(Shared.Languages, "Index", "Languages")</li>
                     }
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink(Shared.Contact, "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

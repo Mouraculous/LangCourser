@@ -1,4 +1,5 @@
 ﻿@using ISBD_project.Models
+@using ISBD_project.Resources
 <!-- model LoginViewModel-->
 @model Account
 @{
@@ -21,13 +22,13 @@
         }  
         <div class="form-horizontal">  
             <tr>  
-                <td>@Html.LabelFor(a => a.loginA, new { @class = "col-md-2 control-label" })</td>  
+                <td class = "col-md-2 control-label">@Shared.Username</td>  
                 <td>@Html.TextBoxFor(a => a.loginA, new { @class = "form-control" })</td>  
                 <td>@Html.ValidationMessageFor(a => a.loginA, "", new { @class = "text-danger" })</td>  
             </tr>  
             <tr>  
-                <td>  
-                    @Html.LabelFor(a => a.passwordA, new { @class = "col-md-2 control-label" })  
+                <td class="col-md-2 control-label">  
+                    @Shared.Password 
                 </td>  
                 <td>  
                     @Html.PasswordFor(a => a.passwordA, new { @class = "form-control" })  
@@ -39,7 +40,7 @@
             <tr>  
                 <td></td>  
                 <td>  
-                    <input type="submit" value="Login" class="btn btn-default"/>  
+                    <input type="submit" value=@Shared.Login class="btn btn-default"/>  
                 </td>  
                 <td></td>  
             </tr>  
