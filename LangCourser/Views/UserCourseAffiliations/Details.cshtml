@@ -1,10 +1,12 @@
-﻿@model ISBD_project.Models.UserCourseAffiliation
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
+@model ISBD_project.Models.UserCourseAffiliation
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Shared.Details</h2>
 
 <div>
     <h4>UserCourseAffiliation</h4>
@@ -37,6 +39,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if(SessionMocker.Instance.LoggedUser?.Role != "Student"){@Html.ActionLink(Shared.Edit, "Edit", new { /* id = Model.PrimaryKey */ })} |
+    @Html.ActionLink(Shared.Back, "Index")
 </p>

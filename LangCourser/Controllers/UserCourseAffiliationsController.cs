@@ -49,7 +49,7 @@ namespace ISBD_project.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idU,idC,scoreUCA")] UserCourseAffiliation userCourseAffiliation)
+        public ActionResult Create([Bind(Include = "idU,idC")] UserCourseAffiliation userCourseAffiliation)
         {
             if (ModelState.IsValid)
             {
@@ -64,13 +64,13 @@ namespace ISBD_project.Controllers
         }
 
         // GET: UserCourseAffiliations/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? idU, int? idC)
         {
-            if (id == null)
+            if (idU == null || idC == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserCourseAffiliation userCourseAffiliation = db.UserCourseAffiliation.Find(id);
+            var userCourseAffiliation = db.UserCourseAffiliation.Find(idU, idC);
             if (userCourseAffiliation == null)
             {
                 return HttpNotFound();
@@ -99,13 +99,13 @@ namespace ISBD_project.Controllers
         }
 
         // GET: UserCourseAffiliations/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? idU, int? idC)
         {
-            if (id == null)
+            if (idU == null || idC == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserCourseAffiliation userCourseAffiliation = db.UserCourseAffiliation.Find(id);
+            UserCourseAffiliation userCourseAffiliation = db.UserCourseAffiliation.Find(idU, idC);
             if (userCourseAffiliation == null)
             {
                 return HttpNotFound();
@@ -116,9 +116,9 @@ namespace ISBD_project.Controllers
         // POST: UserCourseAffiliations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int idU, int idC)
         {
-            UserCourseAffiliation userCourseAffiliation = db.UserCourseAffiliation.Find(id);
+            var userCourseAffiliation = db.UserCourseAffiliation.Find(idU, idC);
             db.UserCourseAffiliation.Remove(userCourseAffiliation);
             db.SaveChanges();
             return RedirectToAction("Index");

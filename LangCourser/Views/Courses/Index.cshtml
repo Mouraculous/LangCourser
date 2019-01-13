@@ -1,4 +1,5 @@
 ﻿@using ISBD_project.Resources
+@using ISBD_project.Session
 @model IEnumerable<ISBD_project.Models.Course>
 
 @{
@@ -8,8 +9,51 @@
 <h2>@Shared.Courses</h2>
 
 <p>
-    @Html.ActionLink(Shared.Create, "Create")
+    @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+    {
+        @Html.ActionLink(Shared.Create, "Create")
+    }
 </p>
+@if (SessionMocker.Instance.LoggedUser?.Role != "Admin")
+{
+    <h4>@Shared.MyCourses</h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Shared.CourseName
+            </th>
+            <th>
+                @Shared.Language
+            </th>
+            <th>
+                @Shared.Lecturer
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Where(w => w.lecturerC == SessionMocker.Instance.LoggedUser?.Account.idU))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.nameL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
+                </td>
+                <td>@Html.ActionLink(Shared.Edit, "Edit", new {id = item.idC}) |
+                    @Html.ActionLink(Shared.Details, "Details", new {id = item.idC}) |
+                    @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+                    {
+                        @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+<h4>@Shared.All</h4>
 <table class="table">
     <tr>
         <th>
@@ -36,9 +80,15 @@
             @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
         </td>
         <td>
-            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC }) |
+            @if (SessionMocker.Instance.LoggedUser?.Role == "Admin" || item.lecturerC == SessionMocker.Instance.LoggedUser?.Account.idU)
+            {
+                @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC })
+            } |
             @Html.ActionLink(Shared.Details, "Details", new { id=item.idC }) |
-            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idC })
+            @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+            {
+                @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
+            }
         </td>
     </tr>
 }

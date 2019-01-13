@@ -115,6 +115,15 @@ namespace ISBD_project.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Return.
         /// </summary>
         public static string Back {
@@ -340,6 +349,15 @@ namespace ISBD_project.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Courses.
+        /// </summary>
+        public static string MyCourses {
+            get {
+                return ResourceManager.GetString("MyCourses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
@@ -390,6 +408,15 @@ namespace ISBD_project.Resources {
         public static string RepeatPassword {
             get {
                 return ResourceManager.GetString("RepeatPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign in.
+        /// </summary>
+        public static string SignIn {
+            get {
+                return ResourceManager.GetString("SignIn", resourceCulture);
             }
         }
         

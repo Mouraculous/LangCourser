@@ -3,7 +3,7 @@
 @if (SessionMocker.IsSessionActive())
 {
     
-    using (Html.BeginForm(Shared.Logout, "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
 
@@ -12,7 +12,7 @@
         @Html.ActionLink(Shared.Hello + SessionMocker.Instance.LoggedUser.Account.loginA + "!", "Details", "Accounts", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     <li class="dropdown">@Html.Partial("_WebLanguage")</li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    <li><a href="javascript:document.getElementById('logoutForm').submit()">@Shared.Logout</a></li>
 </ul>
     }
     
