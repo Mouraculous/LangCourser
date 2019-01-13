@@ -5,6 +5,7 @@
 - ocena kursu
 - sortowanie żeby Hanka nie płakała
 - populacja bazy danych przykładowymi elementami
+- dokończyć tłumaczenie strony
 
 poboczne:
 - upload materiałow szkoleniowych
