@@ -15,9 +15,64 @@ namespace ISBD_project.Controllers
         private Model1 db = new Model1();
 
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Index(string sortBy, string searchBy, string search)
         {
-            var users = db.Users.Include(u => u.UserAffiliation);
+            ViewBag.SortNameParam = sortBy == "name_desc" ? "name" : "name_desc";
+            ViewBag.SortSurnameParam = sortBy == "surname" ? "surname_desc" : "surname";
+            ViewBag.SortAgeParam = sortBy == "age" ? "age_desc" : "age";
+            ViewBag.SortGenderParam = sortBy == "gender" ? "gender_desc" : "gender";
+            ViewBag.SortAffParam = sortBy == "aff" ? "aff_desc" : "aff";
+            var users = db.Users.AsQueryable();
+
+            switch (searchBy)
+            {
+                case "name":
+                    users = users.Where(x => x.nameU.StartsWith(search) || search == null);
+                    break;
+                case "surname":
+                    users = users.Where(x => x.surnameU.StartsWith(search) || search == null);
+                    break;
+                case "aff":
+                    users = users.Where(x => x.UserAffiliation.nameUA.StartsWith(search) || search == null);
+                    break;
+            }
+
+            switch (sortBy)
+            {
+                case "name":
+                    users = users.OrderBy(x => x.nameU);
+                    break;
+                case "name_desc":
+                    users = users.OrderByDescending(x => x.nameU);
+                    break;
+                case "surname":
+                    users = users.OrderBy(x => x.surnameU);
+                    break;
+                case "surname_desc":
+                    users = users.OrderByDescending(x => x.surnameU);
+                    break;
+                case "age":
+                    users = users.OrderBy(x => x.ageU);
+                    break;
+                case "age_desc":
+                    users = users.OrderByDescending(x => x.ageU);
+                    break;
+                case "gender":
+                    users = users.OrderBy(x => x.genderU);
+                    break;
+                case "gender_desc":
+                    users = users.OrderByDescending(x => x.genderU);
+                    break;
+                case "aff":
+                    users = users.OrderBy(x => x.UserAffiliation.nameUA);
+                    break;
+                case "aff_desc":
+                    users = users.OrderByDescending(x => x.UserAffiliation.nameUA);
+                    break;
+                default:
+                    users = users.OrderBy(x => x.nameU);
+                    break;
+            }
             return View(users.ToList());
         }
 

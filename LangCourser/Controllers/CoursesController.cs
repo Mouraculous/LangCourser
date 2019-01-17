@@ -15,9 +15,40 @@ namespace ISBD_project.Controllers
         private Model1 db = new Model1();
 
         // GET: Courses
-        public ActionResult Index()
+        public ActionResult Index(string sortBy, string searchBy, string search)
         {
-            var course = db.Course.Include(c => c.Language).Include(c => c.Users);
+            ViewBag.SortNameParam = sortBy == "name_desc" ? "name" : "name_desc";
+            ViewBag.SortLangParam = sortBy == "lang" ? "lang_desc" : "lang";
+            var course = db.Course.AsQueryable();
+
+            if (searchBy == "name")
+            {
+                course = course.Where(x => x.nameC.StartsWith(search) || search == null);
+            }
+            else
+            {
+                course = course.Where(x => x.Language.nameL.StartsWith(search) || search == null);
+            }
+
+            switch (sortBy)
+            {
+                case "name":
+                    course = course.OrderBy(x => x.nameC);
+                    break;
+                case "name_desc":
+                    course = course.OrderByDescending(x => x.nameC);
+                    break;
+                case "lang":
+                    course = course.OrderBy(x => x.Language.nameL);
+                    break;
+                case "lang_desc":
+                    course = course.OrderByDescending(x => x.Language.nameL);
+                    break;
+                default:
+                    course = course.OrderBy(x => x.nameC);
+                    break;
+            }
+
             return View(course.ToList());
         }
 

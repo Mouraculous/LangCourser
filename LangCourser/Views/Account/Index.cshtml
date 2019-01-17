@@ -3,10 +3,10 @@
 <!-- model LoginViewModel-->
 @model Account
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Sign In";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))  
 {  
     <fieldset>  
@@ -40,7 +40,7 @@
             <tr>  
                 <td></td>  
                 <td>  
-                    <input type="submit" value=@Shared.Login class="btn btn-default"/>  
+                    <input type="submit" value="@Shared.Login &raquo" class="btn btn-default"/>  
                 </td>  
                 <td></td>  
             </tr>  

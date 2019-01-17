@@ -7,7 +7,7 @@
 }
 
 <h2>@Shared.Courses</h2>
-
+    
 <p>
     @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
     {
@@ -20,10 +20,10 @@
     <table class="table">
         <tr>
             <th>
-                @Shared.CourseName
+                @Html.ActionLink(@Shared.CourseName, "Index", new { sortBy = ViewBag.SortNameParam })
             </th>
             <th>
-                @Shared.Language
+                @Html.ActionLink(@Shared.Language, "Index", new { sortBy = ViewBag.SortLangParam })
             </th>
             <th>
                 @Shared.Lecturer
@@ -53,14 +53,23 @@
         }
     </table>
 }
+<p>
+    @using (Html.BeginForm("Index", "Courses", FormMethod.Get))
+    {
+        <b>Search By:</b> @Html.RadioButton("searchBy", "name", true) <text>@Shared.CourseName</text>
+        @Html.RadioButton("searchBy", "language") <text>@Shared.Language</text><br />
+        @Html.TextBox("search") <input class="btn btn-default" type="submit" value="@Shared.Search &raquo;" />
+    }
+</p>
+
 <h4>@Shared.All</h4>
 <table class="table">
     <tr>
         <th>
-            @Shared.CourseName
+            @Html.ActionLink(@Shared.CourseName, "Index", new { sortBy = ViewBag.SortNameParam })
         </th>
         <th>
-            @Shared.Language
+            @Html.ActionLink(@Shared.Language, "Index", new { sortBy = ViewBag.SortLangParam })
         </th>
         <th>
             @Shared.Lecturer

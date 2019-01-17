@@ -9,7 +9,7 @@
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        @Html.ActionLink(Shared.Hello + SessionMocker.Instance.LoggedUser.Account.loginA + "!", "Details", "Accounts", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink(Shared.Hello + SessionMocker.Instance.LoggedUser.Account.Users.nameU + "!", "Details", "Accounts",routeValues: new { id = SessionMocker.Instance.LoggedUser.Account.idA }, htmlAttributes: null)
     </li>
     <li class="dropdown">@Html.Partial("_WebLanguage")</li>
     <li><a href="javascript:document.getElementById('logoutForm').submit()">@Shared.Logout</a></li>

@@ -205,7 +205,7 @@
     <value>Lecturer</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Log in</value>
+    <value>Sign In</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
@@ -233,6 +233,9 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat Password</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign in</value>

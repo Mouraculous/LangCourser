@@ -10,25 +10,35 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<p>
+    @using (Html.BeginForm("Index", "Users", FormMethod.Get))
+    {
+        <b>Search By:</b> @Html.RadioButton("searchBy", "name", true) <text>@Shared.Name</text>
+        @Html.RadioButton("searchBy", "surname") <text>@Shared.Surname</text>
+        @Html.RadioButton("searchBy", "aff") <text>@Shared.UserAffiliation</text><br />
+        @Html.TextBox("search") <input class="btn btn-default" type="submit" value="@Shared.Search &raquo;" />
+    }
+</p>
 <table class="table">
     <tr>
         <th>
-            @Shared.Name
+            @Html.ActionLink(@Shared.Name, "Index", new { sortBy = ViewBag.SortNameParam })
         </th>
         <th>
-            @Shared.Surname
+            @Html.ActionLink(@Shared.Surname, "Index", new { sortBy = ViewBag.SortSurnameParam })
         </th>
         <th>
             @Shared.Email
         </th>
         <th>
-            @Shared.Age
+            @Html.ActionLink(@Shared.Age, "Index", new { sortBy = ViewBag.SortAgeParam })
         </th>
         <th>
-            @Shared.Gender
+            @Html.ActionLink(@Shared.Gender, "Index", new { sortBy = ViewBag.SortGenderParam })
         </th>
         <th>
-            @Shared.UserAffiliation
+            @Html.ActionLink(@Shared.UserAffiliation, "Index", new { sortBy = ViewBag.SortAffParam })
         </th>
         <th></th>
     </tr>

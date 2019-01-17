@@ -15,9 +15,24 @@ namespace ISBD_project.Controllers
         private Model1 db = new Model1();
 
         // GET: Languages
-        public ActionResult Index()
+        public ActionResult Index(string sortBy)
         {
-            return View(db.Language.ToList());
+            ViewBag.SortLangParam = sortBy == "lang_desc" ? "lang" : "lang_desc";
+            var languages = db.Language.AsQueryable();
+
+            switch (sortBy)
+            {
+                case "lang_desc":
+                    languages = languages.OrderByDescending(x => x.nameL);
+                    break;
+                case "lang":
+                    languages = languages.OrderBy(x => x.nameL);
+                    break;
+                default:
+                    languages = languages.OrderBy(x => x.nameL);
+                    break;
+            }
+            return View(languages.ToList());
         }
 
         // GET: Languages/Details/5

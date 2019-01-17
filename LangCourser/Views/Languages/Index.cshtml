@@ -13,14 +13,14 @@
 <table class="table">
     <tr>
         <th>
-           @Shared.Language
+           @Html.ActionLink(@Shared.Language, "Index", new { sortBy = ViewBag.SortLangParam })
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td class="col-md-2 control-label">@Shared.Language</td>
+        <td class="col-md-2 control-label">@Html.DisplayFor(modelItem => item.nameL)</td>
         <td>
             @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idL }) |
             @Html.ActionLink(Shared.Details, "Details", new { id=item.idL }) |
