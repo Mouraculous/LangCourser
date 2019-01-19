@@ -1,4 +1,5 @@
 ﻿@using ISBD_project.Resources
+@using ISBD_project.Session
 @model IEnumerable<ISBD_project.Models.Users>
 
 @{
@@ -6,76 +7,89 @@
 }
 
 <h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-<p>
-    @using (Html.BeginForm("Index", "Users", FormMethod.Get))
-    {
-        <b>Search By:</b> @Html.RadioButton("searchBy", "name", true) <text>@Shared.Name</text>
-        @Html.RadioButton("searchBy", "surname") <text>@Shared.Surname</text>
-        @Html.RadioButton("searchBy", "aff") <text>@Shared.UserAffiliation</text><br />
-        @Html.TextBox("search") <input class="btn btn-default" type="submit" value="@Shared.Search &raquo;" />
-    }
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.ActionLink(@Shared.Name, "Index", new { sortBy = ViewBag.SortNameParam })
-        </th>
-        <th>
-            @Html.ActionLink(@Shared.Surname, "Index", new { sortBy = ViewBag.SortSurnameParam })
-        </th>
-        <th>
-            @Shared.Email
-        </th>
-        <th>
-            @Html.ActionLink(@Shared.Age, "Index", new { sortBy = ViewBag.SortAgeParam })
-        </th>
-        <th>
-            @Html.ActionLink(@Shared.Gender, "Index", new { sortBy = ViewBag.SortGenderParam })
-        </th>
-        <th>
-            @Html.ActionLink(@Shared.UserAffiliation, "Index", new { sortBy = ViewBag.SortAffParam })
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model)
+@if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
 {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nameU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.surnameU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.emailU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ageU)
-        </td>
-        <td>
-            @if (item.genderU.Equals(0))
-            {
-                <i>@Shared.Male</i>
-            }else
-            {
-                <i>@Shared.Female</i>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserAffiliation.nameUA)
-        </td>
-        <td>
-            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idU }) |
-            @Html.ActionLink(Shared.Details, "Details", new { id=item.idU }) |
-            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idU })
-        </td>
-    </tr>
-}
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-</table>
+    <p>
+        @using (Html.BeginForm("Index", "Users", FormMethod.Get))
+        {
+            <b>Search By:</b>
+            @Html.RadioButton("searchBy", "name", true)
+            <text>@Shared.Name</text>
+            @Html.RadioButton("searchBy", "surname")
+            <text>@Shared.Surname</text>
+            @Html.RadioButton("searchBy", "aff")
+            <text>@Shared.UserAffiliation</text>
+            <br />
+            @Html.TextBox("search")
+            <input class="btn btn-default" type="submit" value="@Shared.Search &raquo;" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink(@Shared.Name, "Index", new { sortBy = ViewBag.SortNameParam })
+            </th>
+            <th>
+                @Html.ActionLink(@Shared.Surname, "Index", new { sortBy = ViewBag.SortSurnameParam })
+            </th>
+            <th>
+                @Shared.Email
+            </th>
+            <th>
+                @Html.ActionLink(@Shared.Age, "Index", new { sortBy = ViewBag.SortAgeParam })
+            </th>
+            <th>
+                @Html.ActionLink(@Shared.Gender, "Index", new { sortBy = ViewBag.SortGenderParam })
+            </th>
+            <th>
+                @Html.ActionLink(@Shared.UserAffiliation, "Index", new { sortBy = ViewBag.SortAffParam })
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surnameU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ageU)
+                </td>
+                <td>
+                    @if (item.genderU.Equals(0))
+                    {
+                        <i>@Shared.Male</i>
+                    }
+                    else
+                    {
+                        <i>@Shared.Female</i>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserAffiliation.nameUA)
+                </td>
+                <td>
+                    @Html.ActionLink(Shared.Edit, "Edit", new { id = item.idU }) |
+                    @Html.ActionLink(Shared.Details, "Details", new { id = item.idU }) |
+                    @Html.ActionLink(Shared.Delete, "Delete", new { id = item.idU })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h3>@Shared.NoAccess</h3>
+}

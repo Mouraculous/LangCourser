@@ -5,7 +5,6 @@
 @{
     ViewBag.Title = "Sign In";
 }
-
 <h2>@ViewBag.Title</h2>
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))  
 {  
@@ -20,31 +19,34 @@
                 @ViewBag.Message  
             </div>  
         }  
-        <div class="form-horizontal">  
-            <tr>  
-                <td class = "col-md-2 control-label">@Shared.Username</td>  
-                <td>@Html.TextBoxFor(a => a.loginA, new { @class = "form-control" })</td>  
-                <td>@Html.ValidationMessageFor(a => a.loginA, "", new { @class = "text-danger" })</td>  
-            </tr>  
-            <tr>  
-                <td class="col-md-2 control-label">  
-                    @Shared.Password 
-                </td>  
-                <td>  
-                    @Html.PasswordFor(a => a.passwordA, new { @class = "form-control" })  
-                </td>  
-                <td>  
-                    @Html.ValidationMessageFor(a => a.passwordA, "", new { @class = "text-danger" })  
-                </td>  
-            </tr>  
-            <tr>  
-                <td></td>  
-                <td>  
-                    <input type="submit" value="@Shared.Login &raquo" class="btn btn-default"/>  
-                </td>  
-                <td></td>  
-            </tr>  
-        </div>  
+            <div class="form-horizontal">
+                <tr>
+                    <td class="col-md-2 control-label">@Shared.Username</td>
+                    <td>@Html.TextBoxFor(a => a.loginA, new { @class = "form-control" })</td>
+                    <td>@Html.ValidationMessageFor(a => a.loginA, "", new { @class = "text-danger" })</td>
+                </tr>
+                <tr>
+                    <td class="col-md-2 control-label">
+                        @Shared.Password
+                    </td>
+                    <td>
+                        @Html.PasswordFor(a => a.passwordA, new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.passwordA, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    @Html.Raw(TempData["msg"])
+                </tr><br />
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="@Shared.Login &raquo" class="btn btn-default" />
+                    </td>
+                    <td></td>
+                </tr>
+            </div>  
     </fieldset>  
 }  
 

@@ -1,46 +1,53 @@
 ﻿@using ISBD_project.Resources
+@using ISBD_project.Session
 @model IEnumerable<ISBD_project.Models.Account>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>@Shared.Accounts</h2>
+@if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
+{
+    <p>
+        <h2>@Shared.Accounts</h2>
+        @Html.ActionLink(Shared.Create, "Create")
+    </p>
 
-<p>
-    @Html.ActionLink(Shared.Create, "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            ID
-        </th>
-        <th>
-            @Shared.Username
-        </th>
-        <th>
-            @Shared.Password
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Users.idU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.loginA)
-        </td>
-        <td>
-            ********
-        </td>
-        <td>
-            @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idA }) |
-            @Html.ActionLink(Shared.Details, "Details", new { id=item.idA }) |
-            @Html.ActionLink(Shared.Delete, "Delete", new { id=item.idA })
-        </td>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                @Shared.Username
+            </th>
+            <th>
+                @Shared.Password
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users.idU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.loginA)
+                </td>
+                <td>
+                    ********
+                </td>
+                <td>
+                    @Html.ActionLink(Shared.Edit, "Edit", new { id = item.idA }) |
+                    @Html.ActionLink(Shared.Details, "Details", new { id = item.idA }) |
+                    @Html.ActionLink(Shared.Delete, "Delete", new { id = item.idA })
+                </td>
+            </tr>
+        }
+    </table>
 }
-
-</table>
+else
+{
+    <h3>@Shared.NoAccess</h3>
+}

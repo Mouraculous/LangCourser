@@ -207,6 +207,9 @@
   <data name="Login" xml:space="preserve">
     <value>Sign In</value>
   </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>You have entered an incorrect login and/or password</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
@@ -218,6 +221,12 @@
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="NewAccount" xml:space="preserve">
+    <value>Create a brand new account</value>
+  </data>
+  <data name="NoAccess" xml:space="preserve">
+    <value>It appears you don't have access to this site :(</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

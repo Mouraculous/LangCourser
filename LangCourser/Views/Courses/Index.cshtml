@@ -9,12 +9,12 @@
 <h2>@Shared.Courses</h2>
     
 <p>
-    @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
     {
         @Html.ActionLink(Shared.Create, "Create")
     }
 </p>
-@if (SessionMocker.Instance.LoggedUser?.Role != "Admin")
+@if (Request.Cookies.Get(Strings.Role)?.Value != "Admin" && Request.Cookies[Strings.IsLogged] != null)
 {
     <h4>@Shared.MyCourses</h4>
     <table class="table">
@@ -30,7 +30,7 @@
             </th>
             <th></th>
         </tr>
-        @foreach (var item in Model.Where(w => w.lecturerC == SessionMocker.Instance.LoggedUser?.Account.idU))
+        @foreach (var item in Model.Where(w => w.lecturerC == int.Parse(Request.Cookies.Get(Strings.UserId).Value)))
         {
             <tr>
                 <td>
@@ -44,7 +44,7 @@
                 </td>
                 <td>@Html.ActionLink(Shared.Edit, "Edit", new {id = item.idC}) |
                     @Html.ActionLink(Shared.Details, "Details", new {id = item.idC}) |
-                    @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+                    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
                     {
                         @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
                     }
@@ -89,12 +89,12 @@
             @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
         </td>
         <td>
-            @if (SessionMocker.Instance.LoggedUser?.Role == "Admin" || item.lecturerC == SessionMocker.Instance.LoggedUser?.Account.idU)
+            @if (Request.Cookies[Strings.IsLogged] != null && item.lecturerC == int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value) || Request.Cookies.Get(Strings.Role)?.Value == "Admin")
             {
                 @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC })
             } |
             @Html.ActionLink(Shared.Details, "Details", new { id=item.idC }) |
-            @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+            @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
             {
                 @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
             }

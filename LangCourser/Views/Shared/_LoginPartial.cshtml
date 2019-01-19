@@ -1,6 +1,6 @@
 ﻿@using ISBD_project.Resources
 @using ISBD_project.Session
-@if (SessionMocker.IsSessionActive())
+@if (Request.Cookies.Get(Strings.IsLogged) != null)
 {
     
     using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -9,7 +9,7 @@
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        @Html.ActionLink(Shared.Hello + SessionMocker.Instance.LoggedUser.Account.Users.nameU + "!", "Details", "Accounts",routeValues: new { id = SessionMocker.Instance.LoggedUser.Account.idA }, htmlAttributes: null)
+        @Html.ActionLink(Shared.Hello + Request.Cookies.Get(Strings.Name)?.Value + "!", "Details", "Accounts",routeValues: new { id = int.Parse(Request.Cookies.Get(Strings.AccountId).Value) }, htmlAttributes: null)
     </li>
     <li class="dropdown">@Html.Partial("_WebLanguage")</li>
     <li><a href="javascript:document.getElementById('logoutForm').submit()">@Shared.Logout</a></li>

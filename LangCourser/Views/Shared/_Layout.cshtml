@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(Shared.About, "About", "Home")</li>
                     <li>@Html.ActionLink(Shared.Courses, "Index", "Courses")</li>
-                    @if (SessionMocker.Instance.LoggedUser?.Role == "Admin")
+                    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
                     {
                         <li>@Html.ActionLink(Shared.WebLanguage, "Index", "WebLanguage")</li>
                         <li>@Html.ActionLink(Shared.Users, "Index", "Users")</li>

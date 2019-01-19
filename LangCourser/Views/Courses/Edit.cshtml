@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    @if (SessionMocker.Instance.LoggedUser.Role == "Admin")
+    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
     {
         <div class="form-group">
             <div class="col-md-2 control-label">@Shared.Lecturer</div>

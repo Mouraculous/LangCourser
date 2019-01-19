@@ -34,7 +34,7 @@
             @Html.AntiForgeryToken()
             <dd>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.Hidden("idU", SessionMocker.Instance.LoggedUser.Account.idU)
+                @Html.Hidden("idU", int.Parse(Request.Cookies.Get(Strings.UserId).Value))
                 @Html.ValidationSummary(true, "", new {@class = "text-danger"})
                 @Html.Hidden("idC", Model.idC)
             </dd>
@@ -49,7 +49,7 @@
     </dl>
 </div>
 <p>
-    @if (SessionMocker.Instance.LoggedUser.Role == "Admin" || SessionMocker.Instance.LoggedUser.Account.idU == Model.lecturerC)
+    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin" || Request.Cookies.Get(Strings.UserId)?.Value == Model.lecturerC)
     {
         @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idC })
     } |

@@ -1,45 +1,54 @@
-﻿@model IEnumerable<ISBD_project.Models.UserCourseAffiliation>
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
+@model IEnumerable<ISBD_project.Models.UserCourseAffiliation>
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+@if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Course.nameC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users.nameU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.scoreUCA)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Course.nameC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Users.nameU)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.scoreUCA)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.nameC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Users.nameU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.scoreUCA)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { idU = item.idU, idC = item.idC }) |
+                    @Html.ActionLink("Details", "Details", new { idU = item.idU, idC = item.idC }) |
+                    @Html.ActionLink("Delete", "Delete", new { idU = item.idU, idC = item.idC })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.nameC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Users.nameU)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.scoreUCA)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { idU=item.idU, idC=item.idC }) |
-            @Html.ActionLink("Details", "Details", new { idU = item.idU, idC = item.idC }) |
-            @Html.ActionLink("Delete", "Delete", new { idU = item.idU, idC = item.idC })
-        </td>
-    </tr>
+    </table>
 }
-
-</table>
+else
+{
+    <h3>@Shared.NoAccess</h3>
+}
