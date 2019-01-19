@@ -15,43 +15,60 @@
         <dt class="col-md-2 control-label">@Shared.CourseName</dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Language.nameL)
+            @Html.DisplayFor(model => model.nameC)
         </dd>
 
         <dt class="col-md-2 control-label">@Shared.Lecturer</dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Users.nameU)
+            @Html.DisplayFor(model => model.Users.nameU) @Html.DisplayFor(model => model.Users.surnameU) 
         </dd>
 
-        <dt class="col-md-2 control-label">@Shared.CourseName</dt>
+        <dt class="col-md-2 control-label">@Shared.Language</dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nameC)
+            @Html.DisplayFor(model => model.Language.nameL)
         </dd>
-        @using (Html.BeginForm("Create", "UserCourseAffiliations", FormMethod.Post, new {id = "logoutForm", @class = "navbar-right"}))
+        @try
         {
-            @Html.AntiForgeryToken()
-            <dd>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.Hidden("idU", int.Parse(Request.Cookies.Get(Strings.UserId).Value))
-                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-                @Html.Hidden("idC", Model.idC)
-            </dd>
-            
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="@Shared.SignIn" class="btn btn-default" />
-                </div>
-            </div>
+            if (Request.Cookies.Get(Strings.Role).Value != null)
+            {
+                using (Html.BeginForm("Create", "UserCourseAffiliations", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <dd>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Hidden("idU", int.Parse(Request.Cookies.Get(Strings.UserId).Value))
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Hidden("idC", Model.idC)
+                    </dd>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="@Shared.SignIn" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+            }
+        }
+        catch(NullReferenceException e)
+        {
+
         }
 
     </dl>
 </div>
 <p>
-    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin" || Request.Cookies.Get(Strings.UserId)?.Value == Model.lecturerC)
+    @try
     {
-        @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idC })
-    } |
+        if (Request.Cookies.Get(Strings.Role)?.Value == "Admin" || int.Parse(Request.Cookies.Get(Strings.UserId)?.Value) == Model.lecturerC)
+        {
+            @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idC }) @: |
+        }
+    }catch
+    {
+
+    }
+
     @Html.ActionLink(Shared.Back, "Index")
 </p>

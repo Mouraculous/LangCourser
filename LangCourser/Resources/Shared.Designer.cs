@@ -475,6 +475,24 @@ namespace ISBD_project.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You correctly signed to the course!.
+        /// </summary>
+        public static string SignToCorrect {
+            get {
+                return ResourceManager.GetString("SignToCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You were already signed to this course!.
+        /// </summary>
+        public static string SignToError {
+            get {
+                return ResourceManager.GetString("SignToError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Surname.
         /// </summary>
         public static string Surname {
