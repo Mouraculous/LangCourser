@@ -4,7 +4,7 @@
 - zapis na kurs (zrobiony, ale trzeba dodać możliwość przeglądania kursantów przez wykładowcę) + nie wiem co to jest scoreUCA 
   i nie wiem co z tym zrobić xd
 - ocena kursu :(
-- sortowanie żeby Hanka nie płakała :(
+- sortowanie żeby Hanka nie płakała :)
 - populacja bazy danych przykładowymi elementami :(
 - dokończyć tłumaczenie strony :|
 
