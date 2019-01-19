@@ -219,6 +219,12 @@
   <data name="MyCourses" xml:space="preserve">
     <value>Moje kursy</value>
   </data>
+  <data name="MyCourses_I_Lead" xml:space="preserve">
+    <value>Kursy, które prowadzisz:</value>
+  </data>
+  <data name="MyCourses_I_Participate" xml:space="preserve">
+    <value>Kursy, w których uczestniczysz:</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Imię</value>
   </data>

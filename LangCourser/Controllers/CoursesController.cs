@@ -52,6 +52,28 @@ namespace ISBD_project.Controllers
             return View(course.ToList());
         }
 
+        // GET: MyCourses
+        public ActionResult MyCourses(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var course = db.Course.AsQueryable();
+            var ucaffs = db.UserCourseAffiliation.AsQueryable();
+
+            ucaffs = ucaffs.Where(x => x.idU == id);
+            var affs = new HashSet<int>();
+
+            foreach(var a in ucaffs)
+            {
+                affs.Add(a.idC);
+            }
+
+            course = course.Where(x => affs.Contains(x.idC) || x.lecturerC==id);
+            return View(course.ToList());
+        }
+
         // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {

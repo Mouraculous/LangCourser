@@ -23,6 +23,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink(Shared.About, "About", "Home")</li>
+                    <li>@Html.ActionLink(Shared.Contact, "Contact", "Home")</li>
                     <li>@Html.ActionLink(Shared.Courses, "Index", "Courses")</li>
                     @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
                     {
@@ -31,7 +32,10 @@
                         <li>@Html.ActionLink(Shared.Accounts, "Index", "Accounts")</li>
                         <li>@Html.ActionLink(Shared.Languages, "Index", "Languages")</li>
                     }
-                    <li>@Html.ActionLink(Shared.Contact, "Contact", "Home")</li>
+                    @if (Request.Cookies.Get(Strings.Role)?.Value != null && Request.Cookies[Strings.IsLogged] != null && Request.Cookies.Get(Strings.Role)?.Value != "Admin")
+                    {
+                        <li>@Html.ActionLink(Shared.MyCourses, "MyCourses", "Courses", routeValues: new { id = int.Parse(Request.Cookies.Get(Strings.AccountId).Value) }, htmlAttributes: null)</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

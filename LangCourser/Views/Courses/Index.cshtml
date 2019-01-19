@@ -12,47 +12,9 @@
     @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
     {
         @Html.ActionLink(Shared.Create, "Create")
+        <br />
     }
 </p>
-@if (Request.Cookies.Get(Strings.Role)?.Value != "Admin" && Request.Cookies[Strings.IsLogged] != null)
-{
-    <h4>@Shared.MyCourses</h4>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.ActionLink(@Shared.CourseName, "Index", new { sortBy = ViewBag.SortNameParam })
-            </th>
-            <th>
-                @Html.ActionLink(@Shared.Language, "Index", new { sortBy = ViewBag.SortLangParam })
-            </th>
-            <th>
-                @Shared.Lecturer
-            </th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model.Where(w => w.lecturerC == int.Parse(Request.Cookies.Get(Strings.UserId).Value)))
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nameC)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Language.nameL)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
-                </td>
-                <td>@Html.ActionLink(Shared.Edit, "Edit", new {id = item.idC}) |
-                    @Html.ActionLink(Shared.Details, "Details", new {id = item.idC}) |
-                    @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
-                    {
-                        @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
-                    }
-                </td>
-            </tr>
-        }
-    </table>
-}
 <p>
     @using (Html.BeginForm("Index", "Courses", FormMethod.Get))
     {
@@ -91,12 +53,12 @@
         <td>
             @if (Request.Cookies[Strings.IsLogged] != null && item.lecturerC == int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value) || Request.Cookies.Get(Strings.Role)?.Value == "Admin")
             {
-                @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC })
-            } |
-            @Html.ActionLink(Shared.Details, "Details", new { id=item.idC }) |
+                @Html.ActionLink(Shared.Edit, "Edit", new { id=item.idC }) @: |
+            }
+            @Html.ActionLink(Shared.Details, "Details", new { id=item.idC })
             @if (Request.Cookies.Get(Strings.Role)?.Value == "Admin")
             {
-                @Html.ActionLink(Shared.Delete, "Delete", new {id = item.idC})
+                @: | @Html.ActionLink(Shared.Delete, "Delete", new { id = item.idC })
             }
         </td>
     </tr>
