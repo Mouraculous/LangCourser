@@ -64,16 +64,25 @@ namespace ISBD_project.Controllers
         {
             return View();
         }
-        
+
         public ActionResult RegisterUser(RegisterModel registerModel)
         {
             if (!ModelState.IsValid) return RedirectToAction("Index");
 
-            if (registerModel.PasswordA != registerModel.RepeatedPasswordA)
+            if (db.Account.Any(a => a.loginA == registerModel.LoginA))
             {
-                TempData["WrongPassword"] = "true";
-                RedirectToAction("Register", "Account");
+                TempData["WrongLogin"] = $"<font color=\"red\">{Shared.WrongLogin}</font>";
+                return RedirectToAction("Register", "Account");
             }
+
+            if (db.Users.All(a => a.emailU != registerModel.EmailU))
+            {
+                TempData["WrongEmail"] = $"<font color=\"red\">{Shared.WrongEmail}</font>";
+                return RedirectToAction("Register", "Account");
+            }
+
+            if (TempData.ContainsKey("WrongLogin")) TempData.Remove("WrongLogin");
+            if (TempData.ContainsKey("WrongEmail")) TempData.Remove("WrongEmail");
 
             var user = new Users
             {

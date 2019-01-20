@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
+using ISBD_project.Resources;
 
 namespace ISBD_project.Models
 {
     public class RegisterModel
     {
-        [RegularExpression("^[A-Za-z]+$")]
         public string LoginA { get; set; }
 
+        [StringLength(6)]
         public string PasswordA { get; set; }
 
+        [Compare("PasswordA")]
         public string RepeatedPasswordA { get; set; }
 
         public string NameU { get; set; }

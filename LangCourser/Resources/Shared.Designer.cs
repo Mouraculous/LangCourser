@@ -19,7 +19,7 @@ namespace ISBD_project.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Shared {
@@ -430,6 +430,15 @@ namespace ISBD_project.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The Passwords are not matching.
+        /// </summary>
+        public static string PasswordsNotMatching {
+            get {
+                return ResourceManager.GetString("PasswordsNotMatching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Phone:.
         /// </summary>
         public static string Phone {
@@ -561,6 +570,24 @@ namespace ISBD_project.Resources {
         public static string WebLanguage {
             get {
                 return ResourceManager.GetString("WebLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An account with given email address already exists.
+        /// </summary>
+        public static string WrongEmail {
+            get {
+                return ResourceManager.GetString("WrongEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An account with given login already exists.
+        /// </summary>
+        public static string WrongLogin {
+            get {
+                return ResourceManager.GetString("WrongLogin", resourceCulture);
             }
         }
         

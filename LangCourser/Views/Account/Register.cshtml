@@ -15,7 +15,10 @@
         <div class="col-md-2 control-label">@Shared.Username</div>
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.LoginA, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.LoginA, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.LoginA, "", new { @class = "text-danger" })<br/>
+            <div>
+                @Html.Raw(TempData["WrongLogin"])
+            </div>
         </div>
     </div>
     <div class="form-group">
@@ -26,10 +29,20 @@
         </div>
     </div>
     <div class="form-group">
+        <div class="col-md-2 control-label">@Shared.RepeatPassword</div>
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.RepeatedPasswordA, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RepeatedPasswordA, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-md-2 control-label">E-mail</div>
         <div class="col-md-10">
             @Html.EditorFor(m => m.EmailU, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.EmailU, "", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.EmailU, "", new { @class = "text-danger" })<br/>
+            <div>
+                @Html.Raw(TempData["WrongEmail"])
+            </div>
         </div>
     </div>
     <div class="form-group">

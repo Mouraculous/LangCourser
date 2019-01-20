@@ -240,6 +240,9 @@
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
   </data>
+  <data name="PasswordsNotMatching" xml:space="preserve">
+    <value>Hasła nie są takie same</value>
+  </data>
   <data name="Phone" xml:space="preserve">
     <value>Telefon:</value>
   </data>
@@ -284,6 +287,12 @@
   </data>
   <data name="WebLanguage" xml:space="preserve">
     <value>Język strony</value>
+  </data>
+  <data name="WrongEmail" xml:space="preserve">
+    <value>Konto o podanym adresie email już istnieje</value>
+  </data>
+  <data name="WrongLogin" xml:space="preserve">
+    <value>Konto o podanym lognie już istnieje</value>
   </data>
   <data name="YouSure" xml:space="preserve">
     <value>Czy na pewno chcesz to usunąć?</value>
