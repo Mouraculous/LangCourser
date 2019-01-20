@@ -1,0 +1,60 @@
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
+@model ISBD_project.Models.Course
+
+@{
+    ViewBag.Title = "Advanced Details";
+}
+
+<h2>@Shared.Details</h2>
+    <hr />
+        @try
+        {
+            var courseid = Model.idC;
+            var ucaffs = Model.UserCourseAffiliation.Where(x => x.idC == courseid);
+            double? sum_scores = 0;
+            var score_count = 0;
+            foreach (var item in ucaffs)
+            {
+                if (item.scoreUCA != null)
+                {
+                    int? score = item.scoreUCA;
+                    sum_scores = sum_scores + score;
+                    score_count++;
+                }
+            }
+            var avarage = sum_scores / score_count;
+            <div>
+                <h4>@Shared.Course</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt class="col-md-2 control-label">@Shared.CourseName</dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.nameC)
+                    </dd>
+
+                    <dt class="col-md-2 control-label">@Shared.Language</dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Language.nameL)
+                    </dd>
+
+                    <dt class="col-md-2 control-label">@Shared.AvarageScore</dt>
+
+                    <dd>
+                        @Html.Display(avarage.ToString())
+                    </dd>
+                </dl>
+            </div>
+        }
+        catch
+        {
+
+        }
+            
+
+<p>
+    @Html.ActionLink(Shared.Participants, "Participants", new { id = Model.idC }) |
+    @Html.ActionLink(Shared.Back, "Index")
+</p>

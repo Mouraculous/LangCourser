@@ -89,6 +89,51 @@ namespace ISBD_project.Controllers
             return View(course);
         }
 
+        public ActionResult AdvancedDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Course.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            return View(course);
+        }
+
+        public ActionResult Participants(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Course course = db.Course.Find(id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+            var users = db.Users.AsQueryable();
+            var ucaffs = db.UserCourseAffiliation.AsQueryable();
+            ucaffs = ucaffs.Where(x => x.idC == id);
+            var hash = new HashSet<int>();
+            foreach(var item in ucaffs)
+            {
+                hash.Add(item.idU);
+            }
+            var users_list = new List<Users>();
+            foreach(var item in users)
+            {
+                if (hash.Contains(item.idU))
+                {
+                    users_list.Add(item);
+                }
+            }
+
+            return View(users_list);
+        }
+
         // GET: Courses/Create
         public ActionResult Create()
         {

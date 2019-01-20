@@ -31,7 +31,13 @@
         </dd>
         @try
         {
-            if (Request.Cookies.Get(Strings.Role).Value != null)
+            var ucaffs = Model.UserCourseAffiliation.AsQueryable();
+            var userid = int.Parse(Request.Cookies.Get(Strings.UserId)?.Value);
+            var courseid = Model.idC;
+            ucaffs = ucaffs.Where(x => x.idU == userid);
+            ucaffs = ucaffs.Where(x => x.idC == courseid);
+            
+            if (Request.Cookies.Get(Strings.Role).Value != null && ucaffs.Count()==0)
             {
                 using (Html.BeginForm("Create", "UserCourseAffiliations", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                 {
@@ -61,11 +67,40 @@
 <p>
     @try
     {
+        var ucaffs = Model.UserCourseAffiliation.AsQueryable();
+        var userid = int.Parse(Request.Cookies.Get(Strings.UserId)?.Value);
+        var courseid = Model.idC;
+        ucaffs = ucaffs.Where(x => x.idU == userid);
+        ucaffs = ucaffs.Where(x => x.idC == courseid);
+
+        if (ucaffs.Count() != 0 && ucaffs.ElementAt(0).scoreUCA == null)
+        {
+            @Html.ActionLink(Shared.Score, "Score", "UserCourseAffiliations", new { idC = Model.idC, idU = userid}, null) @: |
+        }
+
+    }catch
+    {
+
+    }
+    @try
+    {
         if (Request.Cookies.Get(Strings.Role)?.Value == "Admin" || int.Parse(Request.Cookies.Get(Strings.UserId)?.Value) == Model.lecturerC)
         {
             @Html.ActionLink(Shared.Edit, "Edit", new { id = Model.idC }) @: |
         }
     }catch
+    {
+
+    }
+
+    @try
+    {
+        if (Request.Cookies.Get(Strings.Role)?.Value == "Lecturer" && int.Parse(Request.Cookies.Get(Strings.UserId)?.Value) == Model.lecturerC)
+        {
+            @Html.ActionLink(Shared.Advanced, "AdvancedDetails", new { id = Model.idC }) @: |
+        }
+    }
+    catch
     {
 
     }

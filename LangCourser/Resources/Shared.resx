@@ -132,11 +132,17 @@
   <data name="AdditionalInfo" xml:space="preserve">
     <value>Additional pieces of information about our site</value>
   </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
   <data name="Age" xml:space="preserve">
     <value>Age</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>All</value>
+  </data>
+  <data name="AvarageScore" xml:space="preserve">
+    <value>Avarage</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Return</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Score</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello </value>
@@ -237,6 +246,9 @@
   <data name="NoAccess" xml:space="preserve">
     <value>It appears you don't have access to this site :(</value>
   </data>
+  <data name="Participants" xml:space="preserve">
+    <value>Participants</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -257,6 +269,12 @@
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Repeat Password</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score course</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>

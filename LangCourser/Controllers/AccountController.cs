@@ -19,7 +19,7 @@ namespace ISBD_project.Controllers
         {
             return View();
         }
-        
+
         public ActionResult Login(Account objUser)
         {
             if (!ModelState.IsValid) return RedirectToRoute("Home");

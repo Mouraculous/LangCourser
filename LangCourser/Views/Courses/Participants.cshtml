@@ -1,0 +1,61 @@
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
+@model IEnumerable<ISBD_project.Models.Users>
+
+@{
+    ViewBag.Title = "Participants";
+}
+
+<h2>@Shared.Participants</h2>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Shared.Name
+            </th>
+            <th>
+                @Shared.Surname
+            </th>
+            <th>
+                @Shared.Email
+            </th>
+            <th>
+                @Shared.Age
+            </th>
+            <th>
+                @Shared.Gender
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nameU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.surnameU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.emailU)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ageU)
+                </td>
+                <td>
+                    @if (item.genderU.Equals(0))
+                    {
+                        <i>@Shared.Male</i>
+                    }
+                    else
+                    {
+                        <i>@Shared.Female</i>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink(Shared.Back, "Index")
+</p>

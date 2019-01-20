@@ -46,6 +46,40 @@ namespace ISBD_project.Controllers
             return View(userCourseAffiliation);
         }
 
+        public ActionResult Score(int? idU, int? idC)
+        {
+            if (idU == null || idC == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var userCourseAffiliation = db.UserCourseAffiliation.Find(idU, idC);
+            if (userCourseAffiliation == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.idC = new SelectList(db.Course, "idC", "nameC", userCourseAffiliation.idC);
+            ViewBag.idU = new SelectList(db.Users, "idU", "nameU", userCourseAffiliation.idU);
+            return View(userCourseAffiliation);
+        }
+
+        // POST: UserCourseAffiliations/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Score([Bind(Include = "scoreUCA")] UserCourseAffiliation userCourseAffiliation)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(userCourseAffiliation).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.idC = new SelectList(db.Course, "idC", "nameC", userCourseAffiliation.idC);
+            ViewBag.idU = new SelectList(db.Users, "idU", "nameU", userCourseAffiliation.idU);
+            return View(userCourseAffiliation);
+        }
+
         // GET: UserCourseAffiliations/Create
         public ActionResult Create()
         {
