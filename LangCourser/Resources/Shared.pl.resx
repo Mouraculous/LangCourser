@@ -159,6 +159,9 @@
   <data name="Create" xml:space="preserve">
     <value>Utwórz</value>
   </data>
+  <data name="DateRequired" xml:space="preserve">
+    <value>Date urodzenia jest wymagana</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Usuń</value>
   </data>
@@ -239,6 +242,9 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Rejestracja</value>
+  </data>
+  <data name="Registered" xml:space="preserve">
+    <value>Twoje konto zostało pomyślnie zarejestrowane!</value>
   </data>
   <data name="RepeatPassword" xml:space="preserve">
     <value>Powtórz hasło</value>

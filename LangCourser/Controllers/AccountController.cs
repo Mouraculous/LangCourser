@@ -2,6 +2,7 @@
 using ISBD_project.Models;
 using ISBD_project.Resources;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ISBD_project.Session;
@@ -66,30 +67,34 @@ namespace ISBD_project.Controllers
         
         public ActionResult RegisterUser(RegisterModel registerModel)
         {
-            if (ModelState.IsValid)
-            {
-                var user = new Users
-                {
-                    ageU = registerModel.AgeU,
-                    emailU = registerModel.EmailU,
-                    nameU = registerModel.NameU,
-                    surnameU = registerModel.SurnameU,
-                    idUA = registerModel.IdUa,
-                    genderU = registerModel.GenderU
-                };
-                db.Users.Add(user);
-                db.SaveChanges();
+            if (!ModelState.IsValid) return RedirectToAction("Index");
 
-                var account = new Account
-                {
-                    loginA = registerModel.LoginA,
-                    passwordA = registerModel.PasswordA,
-                    idU = db.Users.First(f => f.emailU == registerModel.EmailU).idU
-                };
-                db.Account.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+            if (registerModel.PasswordA != registerModel.RepeatedPasswordA)
+            {
+                TempData["WrongPassword"] = "true";
+                RedirectToAction("Register", "Account");
             }
+
+            var user = new Users
+            {
+                ageU = DateTime.Now.Year - registerModel.BirthDate.Year,
+                emailU = registerModel.EmailU,
+                nameU = registerModel.NameU,
+                surnameU = registerModel.SurnameU,
+                idUA = registerModel.IdUa,
+                genderU = registerModel.GenderU
+            };
+            db.Users.Add(user);
+            db.SaveChanges();
+
+            var account = new Account
+            {
+                loginA = registerModel.LoginA,
+                passwordA = registerModel.PasswordA,
+                idU = db.Users.First(f => f.emailU == registerModel.EmailU).idU
+            };
+            db.Account.Add(account);
+            db.SaveChanges();
             return View();
         }
 

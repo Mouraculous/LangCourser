@@ -21,7 +21,7 @@ namespace ISBD_project.Models
         
         public string EmailU { get; set; }
 
-        public int AgeU { get; set; }
+        public DateTime BirthDate { get; set; }
 
         public int GenderU { get; set; }
 
