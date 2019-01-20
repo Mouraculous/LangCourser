@@ -19,7 +19,7 @@ namespace ISBD_project.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Shared {
@@ -376,6 +376,24 @@ namespace ISBD_project.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Courses You Lead:.
+        /// </summary>
+        public static string MyCourses_I_Lead {
+            get {
+                return ResourceManager.GetString("MyCourses_I_Lead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Courses You Participate:.
+        /// </summary>
+        public static string MyCourses_I_Participate {
+            get {
+                return ResourceManager.GetString("MyCourses_I_Participate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string Name {
@@ -471,6 +489,24 @@ namespace ISBD_project.Resources {
         public static string SignIn {
             get {
                 return ResourceManager.GetString("SignIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You correctly signed to the course!.
+        /// </summary>
+        public static string SignToCorrect {
+            get {
+                return ResourceManager.GetString("SignToCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You were already signed to this course!.
+        /// </summary>
+        public static string SignToError {
+            get {
+                return ResourceManager.GetString("SignToError", resourceCulture);
             }
         }
         

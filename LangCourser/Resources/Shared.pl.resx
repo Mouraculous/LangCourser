@@ -222,6 +222,12 @@
   <data name="MyCourses" xml:space="preserve">
     <value>Moje kursy</value>
   </data>
+  <data name="MyCourses_I_Lead" xml:space="preserve">
+    <value>Kursy, które prowadzisz:</value>
+  </data>
+  <data name="MyCourses_I_Participate" xml:space="preserve">
+    <value>Kursy, w których uczestniczysz:</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Imię</value>
   </data>
@@ -254,6 +260,12 @@
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Zapis</value>
+  </data>
+  <data name="SignToCorrect" xml:space="preserve">
+    <value>Zostałeś poprawnie zapisany do kursu!</value>
+  </data>
+  <data name="SignToError" xml:space="preserve">
+    <value>Już jesteś zapisany do tego kursu!</value>
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Nazwisko</value>

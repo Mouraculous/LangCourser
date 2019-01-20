@@ -1,0 +1,98 @@
+﻿@using ISBD_project.Resources
+@using ISBD_project.Session
+@model IEnumerable<ISBD_project.Models.Course>
+
+@{
+    ViewBag.Title = "My Courses";
+}
+
+<h2>@Shared.MyCourses</h2>
+
+@if (Request.Cookies[Strings.IsLogged] != null && Request.Cookies[Strings.Role].Value == "Lecturer")
+{
+    <h3>@Shared.MyCourses_I_Lead</h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Shared.CourseName
+            </th>
+            <th>
+                @Shared.Language
+            </th>
+            <th>
+                @Shared.Lecturer
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (item.lecturerC == int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nameC)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Language.nameL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
+                    </td>
+                    <td>
+                        @if (Request.Cookies[Strings.IsLogged] != null && item.lecturerC == int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value) || Request.Cookies.Get(Strings.Role)?.Value == "Admin")
+                        {
+                            @Html.ActionLink(Shared.Edit, "Edit", new { id = item.idC }) @: |
+            }
+                        @Html.ActionLink(Shared.Details, "Details", new { id = item.idC })
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+    <br />
+    <h3>@Shared.MyCourses_I_Participate</h3>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Shared.CourseName
+        </th>
+        <th>
+            @Shared.Language
+        </th>
+        <th>
+            @Shared.Lecturer
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    if (item.lecturerC != int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language.nameL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.nameU) @Html.DisplayFor(modelItem => item.Users.surnameU)
+            </td>
+            <td>
+                @if (Request.Cookies[Strings.IsLogged] != null && item.lecturerC == int.Parse(Request.Cookies.Get(Strings.AccountId)?.Value) || Request.Cookies.Get(Strings.Role)?.Value == "Admin")
+                {
+                    @Html.ActionLink(Shared.Edit, "Edit", new { id = item.idC }) @: |
+            }
+                @Html.ActionLink(Shared.Details, "Details", new { id = item.idC })
+            </td>
+        </tr>
+    }
+}
+
+</table>

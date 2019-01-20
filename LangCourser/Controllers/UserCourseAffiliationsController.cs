@@ -21,6 +21,16 @@ namespace ISBD_project.Controllers
             return View(userCourseAffiliation.ToList());
         }
 
+        public ActionResult SignToCorrect()
+        {   
+            return View();
+        }
+
+        public ActionResult SignToError()
+        {
+            return View();
+        }
+
         // GET: UserCourseAffiliations/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,9 +63,26 @@ namespace ISBD_project.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.UserCourseAffiliation.Add(userCourseAffiliation);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var ucaff = db.UserCourseAffiliation;
+                Boolean is_in_list = false;
+                foreach (var uca in ucaff)
+                {
+                    if(uca.idC == userCourseAffiliation.idC && uca.idU == userCourseAffiliation.idU)
+                    {
+                        is_in_list = true;
+                    }
+                }
+                if (is_in_list)
+                {
+
+                    return RedirectToAction("SignToError"); 
+                }
+                else
+                {
+                    db.UserCourseAffiliation.Add(userCourseAffiliation);
+                    db.SaveChanges();
+                    return RedirectToAction("SignToCorrect");
+                }           
             }
 
             ViewBag.idC = new SelectList(db.Course, "idC", "nameC", userCourseAffiliation.idC);

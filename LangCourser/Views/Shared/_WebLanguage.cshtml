@@ -1,18 +1,34 @@
 ﻿@using ISBD_project.Resources
 @if (Request.Cookies.Count != 0)
 {
-    if (Request.Cookies.Get("Language").Value != null)
+    try
     {
-        if (Request.Cookies.Get("Language").Value.Equals("pl"))
+        Boolean check = Request.Cookies.Get("Language").Value != null;
+
+        if (check)
         {
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
-                @Shared.Polish
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
-                <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
-            </ul>
+            if (Request.Cookies.Get("Language").Value.Equals("pl"))
+            {
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
+                    @Shared.Polish
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+                    <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+                </ul>
+            }
+            else
+            {
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
+                    @Shared.English
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink(Shared.English, "Change", "WebLanguage", new { LanguageAbbrevation = "en" }, null)</li>
+                    <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
+                </ul>
+            }
         }
         else
         {
@@ -26,7 +42,7 @@
             </ul>
         }
     }
-    else
+    catch (NullReferenceException e)
     {
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:8px">
             @Shared.English
@@ -37,6 +53,7 @@
             <li>@Html.ActionLink(Shared.Polish, "Change", "WebLanguage", new { LanguageAbbrevation = "pl" }, null)</li>
         </ul>
     }
+    
 }
 else
 {
