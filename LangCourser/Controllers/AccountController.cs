@@ -75,7 +75,7 @@ namespace ISBD_project.Controllers
                 return RedirectToAction("Register", "Account");
             }
 
-            if (db.Users.All(a => a.emailU != registerModel.EmailU))
+            if (db.Users.Any(a => a.emailU == registerModel.EmailU))
             {
                 TempData["WrongEmail"] = $"<font color=\"red\">{Shared.WrongEmail}</font>";
                 return RedirectToAction("Register", "Account");
