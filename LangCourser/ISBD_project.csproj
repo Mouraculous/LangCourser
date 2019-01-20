@@ -191,8 +191,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Session\SessionMocker.cs" />
-    <Compile Include="Session\SessionUser.cs" />
     <Compile Include="Session\Strings.cs" />
   </ItemGroup>
   <ItemGroup>
