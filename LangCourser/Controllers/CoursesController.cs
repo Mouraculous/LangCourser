@@ -138,7 +138,10 @@ namespace ISBD_project.Controllers
         public ActionResult Create()
         {
             ViewBag.idL = new SelectList(db.Language, "idL", "nameL");
-            ViewBag.lecturerC = new SelectList(db.Users, "idU", "nameU");
+            var users = db.Users.AsQueryable();
+            users = users.Where(x => x.UserAffiliation.nameUA == "Lecturer");
+
+            ViewBag.lecturerC = new SelectList(users, "idU", "nameU");
             return View();
         }
 

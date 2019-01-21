@@ -130,7 +130,19 @@
     <value>Konta</value>
   </data>
   <data name="AdditionalInfo" xml:space="preserve">
-    <value>Dodatkowe informacje o naszej stronie</value>
+    <value>LangCourser to prosperujący studencki projekt portalu internetowego do zapisu, realizacji oraz oceny kursów językowych!</value>
+  </data>
+  <data name="AdditionalInfov2" xml:space="preserve">
+    <value>Projekt został poprowadzony przez dwójkę studentów:</value>
+  </data>
+  <data name="AdditionalInfov3" xml:space="preserve">
+    <value>- Artur Achmatow - 220951</value>
+  </data>
+  <data name="AdditionalInfov4" xml:space="preserve">
+    <value>- Daniel Sikora - 228936</value>
+  </data>
+  <data name="AdditionalInfov5" xml:space="preserve">
+    <value>Projekt pozostaje nadal w fazie implementacyjnej, jednakże ma wiele przyszłościowych perspektyw.</value>
   </data>
   <data name="Advanced" xml:space="preserve">
     <value>Zaawansowane</value>
@@ -152,6 +164,9 @@
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
+  </data>
+  <data name="Contactuswith" xml:space="preserve">
+    <value>Skontaktuj się z nami poprzez</value>
   </data>
   <data name="Course" xml:space="preserve">
     <value>Kurs</value>
@@ -200,6 +215,12 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Strona główna</value>
+  </data>
+  <data name="Homelabelv1" xml:space="preserve">
+    <value>UCZ SIĘ ANGIELSKIEGO, FRANCUSKIEGO, HISZPAŃSKIEGO, NIEMIECKIEGO, WŁOSKIEGO, CHIŃSKIEGO, POLSKIEGO!</value>
+  </data>
+  <data name="Homelabelv2" xml:space="preserve">
+    <value>Te i wiele innych języków, możesz nauczyć się tylko z nami!!!</value>
   </data>
   <data name="Id" xml:space="preserve">
     <value>ID</value>
@@ -279,6 +300,9 @@
   <data name="Search" xml:space="preserve">
     <value>Szukaj</value>
   </data>
+  <data name="Seemore" xml:space="preserve">
+    <value>Zobacz więcej</value>
+  </data>
   <data name="SignIn" xml:space="preserve">
     <value>Zapis</value>
   </data>
@@ -290,6 +314,51 @@
   </data>
   <data name="Surname" xml:space="preserve">
     <value>Nazwisko</value>
+  </data>
+  <data name="Topic1" xml:space="preserve">
+    <value>Hota'la Salsa Espaniola</value>
+  </data>
+  <data name="Topic1desc1" xml:space="preserve">
+    <value>Gotowy na najgorętszą salse we wszechświecie?</value>
+  </data>
+  <data name="Topic1desc2" xml:space="preserve">
+    <value>Salsa, Tequila i wiele innych tylko na naszym kursie Hiszpańskiego.</value>
+  </data>
+  <data name="Topic1desc3" xml:space="preserve">
+    <value>Rozpalmy w tobie Hiszpana/kę.</value>
+  </data>
+  <data name="Topic1desc4" xml:space="preserve">
+    <value>Jako prowadząca nasza cudowna MaryJJ(Marianna Johhanof)!</value>
+  </data>
+  <data name="Topic2" xml:space="preserve">
+    <value>Zhōngwén kèchéng</value>
+  </data>
+  <data name="Topic2desc1" xml:space="preserve">
+    <value>Spokojnie, jeśli tego nie rozumiesz to nie jesteś sam!</value>
+  </data>
+  <data name="Topic2desc2" xml:space="preserve">
+    <value>To Chiński! Chciałbyś poznać jego tajemnice niezmierzone niczym mur?</value>
+  </data>
+  <data name="Topic2desc3" xml:space="preserve">
+    <value>Ten kurs jest właśnie dla ciebie!</value>
+  </data>
+  <data name="Topic2desc4" xml:space="preserve">
+    <value>Skośnooki prowadzący Zhang już czeka(Zhang Ziyi)!</value>
+  </data>
+  <data name="Topic3" xml:space="preserve">
+    <value>Schweinehund</value>
+  </data>
+  <data name="Topic3desc1" xml:space="preserve">
+    <value>Miałeś kiedyś ochotę na poznanie Niemieckiego?</value>
+  </data>
+  <data name="Topic3desc2" xml:space="preserve">
+    <value>Niemcy, to nasi sąsiedzi! Chyba warto móc się z nimi dogadac!</value>
+  </data>
+  <data name="Topic3desc3" xml:space="preserve">
+    <value>Ta możliwość stoi tóż za rogiem!</value>
+  </data>
+  <data name="Topic3desc4" xml:space="preserve">
+    <value>Niebagatelna Helga nie może się doczekać(Helga Smirnoff)!</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Użytkownik</value>

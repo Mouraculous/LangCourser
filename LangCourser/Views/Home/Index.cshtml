@@ -4,24 +4,49 @@
 }
 
 <div class="jumbotron">
-    <h1>@Shared.LangCourses</h1>
-    <p class="lead">Some base info</p>
+    <h1>@Shared.LangCourses - LangCourser</h1>
+    <p class="lead">@Shared.Homelabelv1</p>
+    <p class="lead">@Shared.Homelabelv2</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Topic 1</h2>
+        <h2>@Shared.Topic1</h2>
         <p>
-            Topic 1 text
+            @Shared.Topic1desc1
+            <br />
+            @Shared.Topic1desc2
+            <br />
+            @Shared.Topic1desc3
+            <br />
+            @Shared.Topic1desc4
         </p>
+        <p class="btn btn-default">@Html.ActionLink(Shared.Seemore, "Details", "Courses", new { id = 19 }, null) &raquo;</p>
     </div>
     <div class="col-md-4">
-        <h2>Topic 2</h2>
-        <p>Topic 2 text</p>
+        <h2>@Shared.Topic2</h2>
+        <p>
+            @Shared.Topic2desc1
+            <br />
+            @Shared.Topic2desc2
+            <br />
+            @Shared.Topic2desc3
+            <br />
+            @Shared.Topic2desc4
+        </p>
+        <p class="btn btn-default">@Html.ActionLink(Shared.Seemore, "Details", "Courses", new { id = 20 }, null) &raquo;</p>
     </div>
     <div class="col-md-4">
-        <h2>Topic 3</h2>
-        <p>Topic 3 text</p>
-        <p><a class="btn btn-default" href="#">Useful button &raquo;</a></p>
+        <h2>@Shared.Topic3</h2>
+        <p>
+            @Shared.Topic3desc1
+            <br />
+            @Shared.Topic3desc2
+            <br />
+            @Shared.Topic3desc3
+            <br />
+            @Shared.Topic3desc4
+        </p>
+        <p class="btn btn-default">@Html.ActionLink(Shared.Seemore, "Details", "Courses" ,new {id = 21 }, null) &raquo;</p>
     </div>
 </div>

@@ -18,8 +18,6 @@ namespace ISBD_project.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Contact us with:";
-
             return View();
         }
     }
